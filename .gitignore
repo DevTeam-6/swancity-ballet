@@ -1,0 +1,26 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment directories
+venv/
+.env/
+
+# Flask instance folder
+instance/
+
+# Flask application config
+config.py
+
+# Pytest cache
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store

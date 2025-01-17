@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  flask-app:
+    image: flask-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./app:/app
+
+  flask-mongo:
+    image: mongo:5.0.30
+    ports:
+      - "27017:27017"
+    volumes:
+      - flask-mongo-data:/data/db
+
+volumes:
+  flask-app-data:
+  flask-mongo-data:
