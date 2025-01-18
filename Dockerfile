@@ -10,6 +10,9 @@ COPY requirements.txt /app/
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install bash (optional, for debugging purposes)
+RUN apt-get update && apt-get install -y bash
+
 # Copy the rest of the application code into the container
 COPY . /app/
 
