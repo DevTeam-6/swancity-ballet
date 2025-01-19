@@ -1,8 +1,8 @@
-Cd into cloned project
-`docker-compose up --build` to bring up containers
-`docker exec -it flask-app /bin/bash` to access the Flask container shell for the next step
-run `python fixtures/load_fixtures.py` in the shell to populate Mongo database
-`exit` to exit shell
-`docker exec -it mongo /bin/bash` to access the Mongo container shell
-`mongosh` to access your local Mongo db running in the container.
-`show dbs` to see newly made dbs created from the `load_fixtures.py` script.
+- Cd into cloned project
+- `docker-compose up --build` to bring up containers
+- `docker exec -it flask-app /bin/bash` to access the Flask container shell for the next step
+- run `python fixtures/load_fixtures.py` in the shell to populate Mongo database
+- `exit` to exit shell
+- `docker exec -it mongo /bin/bash` to access the Mongo container shell
+- `mongosh` to access your local Mongo db running in the container.
+- `show dbs` to see newly made dbs created from the `load_fixtures.py` script.
