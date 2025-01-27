@@ -24,5 +24,5 @@ ENV FLASK_RUN_PORT=5000
 # Expose the port the app runs on
 EXPOSE 5000
 
-# Command to run the application
-CMD ["flask", "run"]
+# Command to load fixtures and run the application
+CMD ["sh", "-c", "python fixtures/load_fixtures.py && flask run"]

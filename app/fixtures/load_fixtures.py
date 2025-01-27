@@ -3,7 +3,7 @@ from faker import Faker
 import random
 
 # MongoDB connection details
-MONGO_URI = "mongodb://flask-mongo:27017"  # Adjust to match your Docker setup
+MONGO_URI = "mongodb://flask-mongo:27017"  # Adjust as needed
 DB_NAME = "testdb"
 
 # Initialize Faker
@@ -31,8 +31,6 @@ def generate_students(num_students, families):
             "first_name": faker.first_name(),
             "last_name": family["last_name"],  # Match family last name
             "family_id": family["_id"],  # Reference family ID
-            "birthdate": faker.date_of_birth(minimum_age=5, maximum_age=18).isoformat(),
-            "grade": random.randint(1, 12),  # Random grade between 1 and 12
         }
         students.append(student)
     return students
