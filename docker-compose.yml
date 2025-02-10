@@ -1,25 +1,54 @@
 version: '3.8'
 
 services:
+  # Flask API Service
   flask-app:
     image: flask-app
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile # Flask Dockerfile in the root directory
     ports:
-      - "5001:5000"
+      - "5001:5000" # Maps Flask container port to 5001
     volumes:
-      - ./app:/app
-    container_name: flask-app # Custom container name
+      - ./app:/app # Maps the app directory
+    container_name: flask-app
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - flask-mongo # Ensures MongoDB is running before Flask starts
+    networks:
+      - app-network # Connects to the app network
 
+  # MongoDB Service
   flask-mongo:
     image: mongo:5.0.30
     ports:
-      - "27017:27017"
+      - "27017:27017" # MongoDB default port
     volumes:
-      - flask-mongo-data:/data/db
-    container_name: mongo # Custom container name
+      - flask-mongo-data:/data/db # Persistent volume for MongoDB data
+    container_name: mongo
+    networks:
+      - app-network # Connects to the app network
+
+  # Next.js Frontend Service
+  nextjs-frontend:
+    build:
+      context: ./frontend # Points to the frontend directory where your Next.js Dockerfile is located
+    container_name: nextjs-frontend
+    ports:
+      - "3000:3000" # Maps Next.js frontend to port 3000
+    depends_on:
+      - flask-app # Ensures Flask app is running before Next.js starts
+    networks:
+      - app-network # Connects to the app network
+    environment:
+      - NEXT_PUBLIC_API_URL=http://flask-app:5000 # Passes the Flask API URL to Next.js
 
 volumes:
   flask-app-data:
   flask-mongo-data:
+
+
+networks:
+  app-network:
+    driver: bridge # Using bridge networking for internal communication

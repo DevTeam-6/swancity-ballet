@@ -20,9 +20,10 @@ COPY . /app/
 ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_RUN_PORT=5000
+ENV FLASK_ENV=development
 
 # Expose the port the app runs on
 EXPOSE 5000
 
 # Command to load fixtures and run the application
-CMD ["sh", "-c", "python fixtures/load_fixtures.py && flask run"]
+CMD ["sh", "-c", "python fixtures/load_fixtures.py && flask run --reload"]
