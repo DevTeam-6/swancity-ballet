@@ -1,5 +1,5 @@
+faker
 flask
+flask-cors
 pymongo
 python-dotenv
-faker
-
