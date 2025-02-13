@@ -1,4 +1,4 @@
-'use client'; // Add this line to mark the file as a client-side component
+"use client";
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -16,7 +16,6 @@ const DataDisplay = () => {
                 const response = await axios.get('http://localhost:5001/data');
                 setData(response.data.data); // Assuming the API returns data in `data.data`
             } catch (err) {
-                console.error
                 setError('Failed to fetch data');
             } finally {
                 setLoading(false);

@@ -1,17 +1,17 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/**/*.{html,jsx,tsx}',
+    // you can either add all styles
+    './node_modules/@rewind-ui/core/dist/theme/styles/*.js',
+    // OR you can add only the styles you need
+    './node_modules/@rewind-ui/core/dist/theme/styles/Button.styles.js',
+    './node_modules/@rewind-ui/core/dist/theme/styles/Text.styles.js'
   ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
-  },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwind-scrollbar')({ nocompatible: true }),
+    require('@tailwindcss/forms')({
+      strategy: 'class' // only generate classes
+    })
+  ]
 };

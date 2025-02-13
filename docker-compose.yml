@@ -37,12 +37,17 @@ services:
     container_name: nextjs-frontend
     ports:
       - "3000:3000" # Maps Next.js frontend to port 3000
+    volumes:
+      - ./frontend:/app # Mount the frontend directory for live reloading
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true # Enable polling to detect file changes
+      - NEXT_PUBLIC_API_URL=http://flask-app:5000 # Passes the Flask API URL to Next.js
     depends_on:
       - flask-app # Ensures Flask app is running before Next.js starts
     networks:
       - app-network # Connects to the app network
-    environment:
-      - NEXT_PUBLIC_API_URL=http://flask-app:5000 # Passes the Flask API URL to Next.js
+    command: npm run dev # Runs Next.js in development mode
 
 volumes:
   flask-app-data:
