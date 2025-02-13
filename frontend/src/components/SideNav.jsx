@@ -29,7 +29,7 @@ export default function SidebarNav() {
 
                 <Sidebar.Nav>
                     <Sidebar.Nav.Section>
-                        <Sidebar.Nav.Section.Item icon={<Rocket />} label="Dashboard" href="#" active />
+                        <Sidebar.Nav.Section.Item icon={<Rocket />} label="Dashboard" href="/" active />
                     </Sidebar.Nav.Section>
 
                     <Sidebar.Nav.Section>

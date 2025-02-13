@@ -14,6 +14,7 @@ services:
     container_name: flask-app
     environment:
       - FLASK_ENV=development
+      - MONGO_URI=mongodb://flask-mongo:27017/testdb
     depends_on:
       - flask-mongo # Ensures MongoDB is running before Flask starts
     networks:
