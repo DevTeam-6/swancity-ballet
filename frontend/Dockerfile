@@ -32,4 +32,4 @@ RUN npm install --production
 EXPOSE 3000
 
 # Start Next.js app in production
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

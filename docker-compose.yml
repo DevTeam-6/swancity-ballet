@@ -34,20 +34,23 @@ services:
   # Next.js Frontend Service
   nextjs-frontend:
     build:
-      context: ./frontend # Points to the frontend directory where your Next.js Dockerfile is located
-    container_name: nextjs-frontend
+      context: ./frontend # Points to frontend directory
+      dockerfile: Dockerfile # Next.js Dockerfile
     ports:
-      - "3000:3000" # Maps Next.js frontend to port 3000
+      - "3000:3000"
+    container_name: nextjs-frontend
     volumes:
-      - ./frontend:/app # Mount the frontend directory for live reloading
+      - ./frontend:/app # Mount frontend directory for live reloading
+      - /app/node_modules # Prevent overwriting node_modules
     environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true # Enable polling to detect file changes
-      - NEXT_PUBLIC_API_URL=http://flask-app:5000 # Passes the Flask API URL to Next.js
+      - NEXT_PUBLIC_API_URL=http://flask-app:5000
+      - CHOKIDAR_USEPOLLING=true # Required for file watching in Docker
+      - WATCHPACK_POLLING=true # Ensures Next.js detects file changes
+      - NEXT_DISABLE_TURBOPACK=true # Disable Turbopack (for better stability)
     depends_on:
-      - flask-app # Ensures Flask app is running before Next.js starts
+      - flask-app
     networks:
-      - app-network # Connects to the app network
+      - app-network
     command: npm run dev # Runs Next.js in development mode
 
 volumes:
