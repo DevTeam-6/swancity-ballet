@@ -5,6 +5,8 @@ import { Sidebar, useSidebar, Overlay } from "@rewind-ui/core";
 import Image from "next/image";
 import Link from 'next/link'
 import { Rocket, Briefcase, Users, Shield, Key, Sliders, LucideVolleyball, PanelTopOpen, Book, User } from "lucide-react";
+import { MdEmojiPeople } from 'react-icons/md';
+
 
 export default function SidebarNav() {
     const [expanded, setExpanded] = useState(true);
@@ -22,7 +24,7 @@ export default function SidebarNav() {
             >
                 <Sidebar.Head>
                     <Sidebar.Head.Logo>
-                        <Image src="/images/rewind.svg" width={48} height={48} alt="Dance Moms" />
+                        <MdEmojiPeople />
                     </Sidebar.Head.Logo>
                     <Sidebar.Head.Title>Dance Moms</Sidebar.Head.Title>
                     <Sidebar.Head.Toggle />
