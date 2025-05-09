@@ -1,19 +1,24 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Text } from '@rewind-ui/core'; // Import Rewind UI components
 
-const DataDisplay = () => {
+export default function Families() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [mounted, setMounted] = useState(false); // Track if the component is mounted
+
+    useEffect(() => {
+        setMounted(true); // Set to true once the component is mounted
+    }, []);
 
     // Fetch data from the Flask API
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5001/students');
+                const response = await axios.get('http://localhost:5001/api/families');
                 setData(response.data.data); // Assuming the API returns data in `data.data`
             } catch (err) {
                 setError('Failed to fetch data');
@@ -25,6 +30,7 @@ const DataDisplay = () => {
         fetchData();
     }, []);
 
+    if (!mounted) return null; // Return nothing before the component is mounted (to avoid SSR mismatches)
     if (loading) return <Text>Loading...</Text>;
     if (error) return <Text>{error}</Text>;
 
@@ -38,6 +44,4 @@ const DataDisplay = () => {
             ))}
         </div>
     );
-};
-
-export default DataDisplay;
+}

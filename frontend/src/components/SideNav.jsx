@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
 import React, { useState } from "react";
 import { Sidebar, useSidebar, Overlay } from "@rewind-ui/core";
 import Image from "next/image";
+import Link from 'next/link'
 import { Rocket, Briefcase, Users, Shield, Key, Sliders, LucideVolleyball, PanelTopOpen, Book, User } from "lucide-react";
 
 export default function SidebarNav() {
@@ -11,19 +12,19 @@ export default function SidebarNav() {
     const sidebar = useSidebar();
 
     return (
-        <div className="relative flex flex-row w-full h-auto">
+        <div className="relative flex flex-row w-100 h-auto">
             <Sidebar
                 onToggle={(state) => {
                     setExpanded(state.expanded);
                     setMobile(state.mobile);
                 }}
-                className="absolute"
+                className="absolute flex"
             >
                 <Sidebar.Head>
                     <Sidebar.Head.Logo>
-                        <Image src="/images/rewind.svg" width={48} height={48} alt="Company Name" />
+                        <Image src="/images/rewind.svg" width={48} height={48} alt="Dance Moms" />
                     </Sidebar.Head.Logo>
-                    <Sidebar.Head.Title>Company Name</Sidebar.Head.Title>
+                    <Sidebar.Head.Title>Dance Moms</Sidebar.Head.Title>
                     <Sidebar.Head.Toggle />
                 </Sidebar.Head>
 
@@ -36,8 +37,10 @@ export default function SidebarNav() {
                         <Sidebar.Nav.Section.Item icon={<User />} label="Students" href="/students" />
                         <Sidebar.Nav.Section.Item icon={<Users />} label="Families" as="button">
                             <Sidebar.Nav.Section isChild>
-                                <Sidebar.Nav.Section.Item label="List all" href="#" />
-                                <Sidebar.Nav.Section.Item label="Add new" href="#" />
+                                <Sidebar.Nav.Section.Item label="List all" href="/families" />
+                                <Link href="/families/create">
+                                    Add new
+                                </Link>
                                 <Sidebar.Nav.Section.Item label="Archived" href="#" />
                             </Sidebar.Nav.Section>
                         </Sidebar.Nav.Section.Item>
@@ -51,8 +54,8 @@ export default function SidebarNav() {
 
                 <Sidebar.Footer>
                     <div className="flex flex-col justify-center items-center text-sm">
-                        <span className="font-semibold">Company Name</span>
-                        <span>version x.y.z</span>
+                        <span className="font-semibold">Dance Moms</span>
+                        <span>version 1.0</span>
                     </div>
                 </Sidebar.Footer>
             </Sidebar>
