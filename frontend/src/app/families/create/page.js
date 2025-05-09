@@ -19,7 +19,7 @@ export default function Create() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const res = await fetch('http://localhost:5001/api/families', {
+        const res = await fetch('http://localhost:5001/families/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ export default function Create() {
 
     return (
         <div className="mx-auto p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-3xl font-bold text-center text-gray-700 mb-6">Create a New Family</h1>
+            <h1 className="text-3xl font-bold text-center text-gray-700 mb-6">Create New Family</h1>
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -50,18 +50,6 @@ export default function Create() {
                             id="family_name"
                             className="w-full border-2 border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Enter Family Name"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="last_name" className="block text-gray-600 font-medium mb-2">Last Name</label>
-                        <input
-                            name="last_name"
-                            type="text"
-                            value={formData.last_name}
-                            onChange={handleChange}
-                            id="last_name"
-                            className="w-full border-2 border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Enter Last Name"
                         />
                     </div>
                 </div>
