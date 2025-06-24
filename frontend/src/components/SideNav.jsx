@@ -37,6 +37,7 @@ export default function SidebarNav() {
 
                     <Sidebar.Nav.Section>
                         <Sidebar.Nav.Section.Item icon={<User />} label="Students" href="/students" />
+                        <Sidebar.Nav.Section.Item icon={<User />} label="Calendar" href="/calendar" />
                         <Sidebar.Nav.Section.Item icon={<Users />} label="Families" as="button">
                             <Sidebar.Nav.Section isChild>
                                 <Sidebar.Nav.Section.Item label="List all" href="/families" />

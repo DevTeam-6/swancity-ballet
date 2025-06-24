@@ -10,9 +10,12 @@ app = Flask(__name__)
 CORS(app)
 
 # MongoDB Configuration
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://mongo:27017/testdb")
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://mongo:27017/")
+DB_NAME = os.getenv("DB_NAME", "testdb")  # choose your DB name
+
 client = MongoClient(MONGO_URI)
-db = client.get_database()  # Use the database defined in the URI or default
+db = client[DB_NAME]  # Access database by name
+
 
 @app.route('/')
 def home():

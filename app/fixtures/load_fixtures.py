@@ -3,7 +3,7 @@ from faker import Faker
 import random
 
 # MongoDB connection details
-MONGO_URI = "mongodb://flask-mongo:27017"  # Adjust as needed
+MONGO_URI = "mongodb://mongo:27017/"  # Adjust as needed
 DB_NAME = "testdb"
 
 # Initialize Faker

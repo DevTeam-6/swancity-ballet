@@ -11,7 +11,7 @@ export default function StudentsPage() {
     useEffect(() => {
         const fetchStudents = async () => {
             try {
-                const res = await fetch(`http://localhost:5001/students`);
+                const res = await fetch(`http://localhost:5000/students`);
                 if (!res.ok) throw new Error("Failed to fetch students");
                 const data = await res.json();
                 setStudents(data);
