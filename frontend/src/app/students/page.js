@@ -26,9 +26,8 @@ export default function StudentsPage() {
     }, []);
 
     const studentColumns = [
-        { key: "id", label: "ID" },
-        { key: "name", label: "Name" },
-        { key: "email", label: "Email" },
+        { key: "first_name", label: "Name" },
+        { key: "last_name", label: "Email" },
     ];
 
     if (loading) return <div>Loading...</div>;
