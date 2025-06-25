@@ -41,9 +41,7 @@ export default function SidebarNav() {
                         <Sidebar.Nav.Section.Item icon={<Users />} label="Families" as="button">
                             <Sidebar.Nav.Section isChild>
                                 <Sidebar.Nav.Section.Item label="List all" href="/families" />
-                                <Link href="/families/create">
-                                    Add new
-                                </Link>
+                                <Sidebar.Nav.Section.Item label="Add new" href="/families/create" />
                                 <Sidebar.Nav.Section.Item label="Archived" href="#" />
                             </Sidebar.Nav.Section>
                         </Sidebar.Nav.Section.Item>
