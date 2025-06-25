@@ -49,6 +49,23 @@ def create_family():
     # Return the newly created family with the MongoDB _id
     family_data['_id'] = str(result.inserted_id)
     return jsonify(family_data), 201
+
+@app.route('/appointments', methods=['POST'])
+def create_appointment():
+    data = request.json
+    db.appointments.insert_one(data)
+    return jsonify({"message": "Appointment created"}), 201
+
+@app.route('/appointments', methods=['GET'])
+def get_appointments():
+    appointments = list(db.appointments.find())
+    return json_util.dumps({"data": appointments}), 200, {"Content-Type": "application/json"}
+
+@app.route('/appointments/<id>', methods=['DELETE'])
+def delete_appointment(id):
+    db.appointments.delete_one({'_id': ObjectId(id)})
+    return jsonify({"message": "Deleted"}), 200
+
    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
