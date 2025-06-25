@@ -1,4 +1,4 @@
-- Cd into cloned project
+- `cd` into cloned project
 - `docker compose up --build` to bring up containers
 - `docker exec -it flask-app /bin/bash` to access the Flask container shell for the next step
 - run `python fixtures/load_fixtures.py` in the shell to populate Mongo database
