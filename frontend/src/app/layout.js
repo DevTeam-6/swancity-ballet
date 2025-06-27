@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <SidebarNav />
 
         {/* Main content */}
-        <main className="flex-grow p-8 w-full bg-white">{children}</main>
+        <main className="flex-grow p-8 w-full bg-white z-0">{children}</main>
       </body>
     </html>
   );

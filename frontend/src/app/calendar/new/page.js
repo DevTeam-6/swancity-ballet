@@ -9,7 +9,7 @@ export default function SchedulerView() {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
-    <main className="p-6">
+    <main className="p-6 text-black">
       <h1 className="text-2xl font-bold mb-4">Schedule A Class</h1>
 
       <div className="max-w-md">

@@ -7,6 +7,13 @@ module.exports = {
     './node_modules/@rewind-ui/core/dist/theme/styles/Button.styles.js',
     './node_modules/@rewind-ui/core/dist/theme/styles/Text.styles.js'
   ],
+    theme: {
+    extend: {
+      colors: {
+        teal: '#26bfb8',
+      },
+    },
+  },
   plugins: [
     require('@tailwindcss/typography'),
     require('tailwind-scrollbar')({ nocompatible: true }),

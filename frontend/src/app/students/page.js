@@ -34,6 +34,9 @@ export default function StudentsPage() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <DataTable columns={studentColumns} data={students} />
+        <div className="flexbg-gray-50">
+            <DataTable columns={studentColumns} data={students} />
+        </div>
     );
+
 }

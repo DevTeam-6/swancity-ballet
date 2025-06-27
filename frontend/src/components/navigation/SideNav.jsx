@@ -14,15 +14,15 @@ export default function SidebarNav() {
     const sidebar = useSidebar();
 
     return (
-        <div className="relative flex flex-row w-100 h-auto">
+        <div className="relative flex flex-row w-100 h-auto z-1">
             <Sidebar
                 onToggle={(state) => {
                     setExpanded(state.expanded);
                     setMobile(state.mobile);
                 }}
-                className="absolute flex w-full bg-teal-500"
+                className="absolute flex w-full bg-teal"
             >
-                <Sidebar.Head className="text-white mx-auto">
+                <Sidebar.Head className="text-white mx-auto border-solid border-gray-200 border-opacity-60">
                     <Sidebar.Head.Logo>
                         <MdEmojiPeople />
                     </Sidebar.Head.Logo>
@@ -121,7 +121,7 @@ export default function SidebarNav() {
                 </Sidebar.Nav>
 
 
-                <Sidebar.Footer>
+                <Sidebar.Footer className="border-solid border-gray-200 border-opacity-60">
                     <div className="flex flex-col justify-center items-center text-sm">
                         <span className="font-semibold">Dance Moms</span>
                         <span>version 1.0</span>
