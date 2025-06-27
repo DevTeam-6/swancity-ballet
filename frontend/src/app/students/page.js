@@ -33,5 +33,7 @@ export default function StudentsPage() {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
-    return <DataTable columns={studentColumns} data={students} />;
+    return (
+        <DataTable columns={studentColumns} data={students} />
+    );
 }

@@ -20,9 +20,9 @@ export default function SidebarNav() {
                     setExpanded(state.expanded);
                     setMobile(state.mobile);
                 }}
-                className="absolute flex"
+                className="absolute flex w-full bg-teal-500"
             >
-                <Sidebar.Head>
+                <Sidebar.Head className="text-white mx-auto">
                     <Sidebar.Head.Logo>
                         <MdEmojiPeople />
                     </Sidebar.Head.Logo>
@@ -32,32 +32,94 @@ export default function SidebarNav() {
 
                 <Sidebar.Nav>
                     <Sidebar.Nav.Section>
-                        <Sidebar.Nav.Section.Item icon={<Rocket />} label="Dashboard" href="/" active />
+                        <Sidebar.Nav.Section.Item
+                            className="text-white hover:text-black hover:bg-white bg-teal-500 transition-colors my-0 duration-200 rounded-md"
+                            icon={<Rocket />}
+                            label="Dashboard"
+                            href="/"
+                            active
+                        />
                     </Sidebar.Nav.Section>
 
                     <Sidebar.Nav.Section>
-                        <Sidebar.Nav.Section.Item icon={<User />} label="Students" href="/students" />
-                        <Sidebar.Nav.Section.Item icon={<Users />} label="Calendar" as="button">
+                        <Sidebar.Nav.Section.Item
+                            className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                            icon={<User />}
+                            label="Students"
+                            href="/students"
+                        />
+
+                        <Sidebar.Nav.Section.Item
+                            className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                            icon={<Users />}
+                            label="Calendar"
+                            as="button"
+                        >
                             <Sidebar.Nav.Section isChild>
-                                <Sidebar.Nav.Section.Item label="Add Class" href="/calendar/new" />
-                                <Sidebar.Nav.Section.Item label="Add new" href="#" />
-                                <Sidebar.Nav.Section.Item label="Archived" href="#" />
+                                <Sidebar.Nav.Section.Item
+                                    className="hover:bg-black text-white transition-colors duration-200 rounded-md"
+                                    label="Add Class"
+                                    href="/calendar/new"
+                                />
+                                <Sidebar.Nav.Section.Item
+                                    className="hover:bg-black text-white transition-colors duration-200 rounded-md"
+                                    label="Add new"
+                                    href="#"
+                                />
+                                <Sidebar.Nav.Section.Item
+                                    className="hover:bg-black text-white transition-colors duration-200 rounded-md"
+                                    label="Archived"
+                                    href="#"
+                                />
                             </Sidebar.Nav.Section>
                         </Sidebar.Nav.Section.Item>
-                        <Sidebar.Nav.Section.Item icon={<Users />} label="Families" as="button">
+
+                        <Sidebar.Nav.Section.Item
+                            className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                            icon={<Users />}
+                            label="Families"
+                            as="button"
+                        >
                             <Sidebar.Nav.Section isChild>
-                                <Sidebar.Nav.Section.Item label="List all" href="/families" />
-                                <Sidebar.Nav.Section.Item label="Add new" href="/families/create" />
-                                <Sidebar.Nav.Section.Item label="Archived" href="#" />
+                                <Sidebar.Nav.Section.Item
+                                    className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                                    label="List all"
+                                    href="/families"
+                                />
+                                <Sidebar.Nav.Section.Item
+                                    className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                                    label="Add new"
+                                    href="/families/create"
+                                />
+                                <Sidebar.Nav.Section.Item
+                                    className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                                    label="Archived"
+                                    href="#"
+                                />
                             </Sidebar.Nav.Section>
                         </Sidebar.Nav.Section.Item>
-                        <Sidebar.Nav.Section.Item icon={<Briefcase />} label="Classes" href="#" />
-                        <Sidebar.Nav.Section.Item icon={<Key />} label="Users" href="#" />
-                        <Sidebar.Nav.Section.Item icon={<Sliders />} label="Settings" href="#" />
+
+                        <Sidebar.Nav.Section.Item
+                            className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                            icon={<Briefcase />}
+                            label="Classes"
+                            href="#"
+                        />
+                        <Sidebar.Nav.Section.Item
+                            className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                            icon={<Key />}
+                            label="Users"
+                            href="#"
+                        />
+                        <Sidebar.Nav.Section.Item
+                            className="text-white hover:text-black hover:bg-white transition-colors duration-200 rounded-md"
+                            icon={<Sliders />}
+                            label="Settings"
+                            href="#"
+                        />
                     </Sidebar.Nav.Section>
-
-
                 </Sidebar.Nav>
+
 
                 <Sidebar.Footer>
                     <div className="flex flex-col justify-center items-center text-sm">
