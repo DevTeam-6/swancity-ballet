@@ -16,14 +16,17 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children }) {
   return (
-    <html className="bg-white" lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex`}>
+    <html className="h-full bg-white" lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex h-full overflow-hidden`}>
         {/* Sidebar */}
         <SidebarNav />
 
         {/* Main content */}
-        <main className="flex-grow p-8 w-full bg-white z-0">{children}</main>
+        <main className="flex-grow p-8 w-full bg-white z-0 overflow-y-auto">
+          {children}
+        </main>
       </body>
     </html>
   );
 }
+
